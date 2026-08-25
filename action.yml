@@ -52,6 +52,8 @@ inputs:
     default: true
   github-server-url:
     required: false
+  allow-unsafe-pr-checkout:
+    default: false
 
   # available: v4 | v3 | v2
   actions--checkout-ref:
@@ -86,10 +88,91 @@ runs:
 
     # CAUTION:
     #
-    #   Use copmarison with the string in the `if` expression to temporary workaround the issue:
+    #   Use comparison with the string in the `if` expression to temporary workaround the issue:
     #
     #   `Boolean inputs are not actually booleans` : https://github.com/actions/runner/issues/1483
     #
+
+    - name: "[git-checkout-extension][02] if: ${{ (steps.check-repo-exists-and-has-ref.outputs.is-repo-exists-and-has-ref == 'true') && (inputs.actions--checkout-ref == 'v7') }}"
+      #if: ${{ steps.check-repo-exists-and-has-ref.conclusion == 'success' }}
+      if: ${{ (steps.check-repo-exists-and-has-ref.outputs.is-repo-exists-and-has-ref == 'true') && (inputs.actions--checkout-ref == 'v7') }}
+      uses: actions/checkout@v7
+      with:
+        repository:                 ${{ inputs.repository }}
+        ref:                        ${{ inputs.ref }}
+        token:                      ${{ inputs.token }}
+        ssh-key:                    ${{ inputs.ssh-key }}
+        ssh-known-hosts:            ${{ inputs.ssh-known-hosts }}
+        ssh-strict:                 ${{ inputs.ssh-strict }}
+        ssh-user:                   ${{ inputs.ssh-user }}
+        persist-credentials:        ${{ inputs.persist-credentials }}
+        path:                       ${{ inputs.path }}
+        clean:                      ${{ inputs.clean }}
+        filter:                     ${{ inputs.filter }}
+        sparse-checkout:            ${{ inputs.sparse-checkout }}
+        sparse-checkout-cone-mode:  ${{ inputs.sparse-checkout-cone-mode }}
+        fetch-depth:                ${{ inputs.fetch-depth }}
+        fetch-tags:                 ${{ inputs.fetch-tags }}
+        show-progress:              ${{ inputs.show-progress }}
+        lfs:                        ${{ inputs.lfs }}
+        submodules:                 ${{ inputs.submodules }}
+        set-safe-directory:         ${{ inputs.set-safe-directory }}
+        github-server-url:          ${{ inputs.github-server-url }}
+        allow-unsafe-pr-checkout:   ${{ inputs.allow-unsafe-pr-checkout }}
+
+    - name: "[git-checkout-extension][02] if: ${{ (steps.check-repo-exists-and-has-ref.outputs.is-repo-exists-and-has-ref == 'true') && (inputs.actions--checkout-ref == 'v6') }}"
+      #if: ${{ steps.check-repo-exists-and-has-ref.conclusion == 'success' }}
+      if: ${{ (steps.check-repo-exists-and-has-ref.outputs.is-repo-exists-and-has-ref == 'true') && (inputs.actions--checkout-ref == 'v6') }}
+      uses: actions/checkout@v6
+      with:
+        repository:                 ${{ inputs.repository }}
+        ref:                        ${{ inputs.ref }}
+        token:                      ${{ inputs.token }}
+        ssh-key:                    ${{ inputs.ssh-key }}
+        ssh-known-hosts:            ${{ inputs.ssh-known-hosts }}
+        ssh-strict:                 ${{ inputs.ssh-strict }}
+        ssh-user:                   ${{ inputs.ssh-user }}
+        persist-credentials:        ${{ inputs.persist-credentials }}
+        path:                       ${{ inputs.path }}
+        clean:                      ${{ inputs.clean }}
+        filter:                     ${{ inputs.filter }}
+        sparse-checkout:            ${{ inputs.sparse-checkout }}
+        sparse-checkout-cone-mode:  ${{ inputs.sparse-checkout-cone-mode }}
+        fetch-depth:                ${{ inputs.fetch-depth }}
+        fetch-tags:                 ${{ inputs.fetch-tags }}
+        show-progress:              ${{ inputs.show-progress }}
+        lfs:                        ${{ inputs.lfs }}
+        submodules:                 ${{ inputs.submodules }}
+        set-safe-directory:         ${{ inputs.set-safe-directory }}
+        github-server-url:          ${{ inputs.github-server-url }}
+        allow-unsafe-pr-checkout:   ${{ inputs.allow-unsafe-pr-checkout }}
+
+    - name: "[git-checkout-extension][02] if: ${{ (steps.check-repo-exists-and-has-ref.outputs.is-repo-exists-and-has-ref == 'true') && (inputs.actions--checkout-ref == 'v5') }}"
+      #if: ${{ steps.check-repo-exists-and-has-ref.conclusion == 'success' }}
+      if: ${{ (steps.check-repo-exists-and-has-ref.outputs.is-repo-exists-and-has-ref == 'true') && (inputs.actions--checkout-ref == 'v5') }}
+      uses: actions/checkout@v5
+      with:
+        repository:                 ${{ inputs.repository }}
+        ref:                        ${{ inputs.ref }}
+        token:                      ${{ inputs.token }}
+        ssh-key:                    ${{ inputs.ssh-key }}
+        ssh-known-hosts:            ${{ inputs.ssh-known-hosts }}
+        ssh-strict:                 ${{ inputs.ssh-strict }}
+        ssh-user:                   ${{ inputs.ssh-user }}
+        persist-credentials:        ${{ inputs.persist-credentials }}
+        path:                       ${{ inputs.path }}
+        clean:                      ${{ inputs.clean }}
+        filter:                     ${{ inputs.filter }}
+        sparse-checkout:            ${{ inputs.sparse-checkout }}
+        sparse-checkout-cone-mode:  ${{ inputs.sparse-checkout-cone-mode }}
+        fetch-depth:                ${{ inputs.fetch-depth }}
+        fetch-tags:                 ${{ inputs.fetch-tags }}
+        show-progress:              ${{ inputs.show-progress }}
+        lfs:                        ${{ inputs.lfs }}
+        submodules:                 ${{ inputs.submodules }}
+        set-safe-directory:         ${{ inputs.set-safe-directory }}
+        github-server-url:          ${{ inputs.github-server-url }}
+        allow-unsafe-pr-checkout:   ${{ inputs.allow-unsafe-pr-checkout }}
 
     - name: "[git-checkout-extension][02] if: ${{ (steps.check-repo-exists-and-has-ref.outputs.is-repo-exists-and-has-ref == 'true') && (inputs.actions--checkout-ref == 'v4') }}"
       #if: ${{ steps.check-repo-exists-and-has-ref.conclusion == 'success' }}
@@ -116,6 +199,7 @@ runs:
         submodules:                 ${{ inputs.submodules }}
         set-safe-directory:         ${{ inputs.set-safe-directory }}
         github-server-url:          ${{ inputs.github-server-url }}
+        allow-unsafe-pr-checkout:   ${{ inputs.allow-unsafe-pr-checkout }}
 
     - name: "[git-checkout-extension][02] if: ${{ (steps.check-repo-exists-and-has-ref.outputs.is-repo-exists-and-has-ref == 'true') && (inputs.actions--checkout-ref == 'v3') }}"
       if: ${{ (steps.check-repo-exists-and-has-ref.outputs.is-repo-exists-and-has-ref == 'true') && (inputs.actions--checkout-ref == 'v3') }}
@@ -138,6 +222,7 @@ runs:
         submodules:                 ${{ inputs.submodules }}
         set-safe-directory:         ${{ inputs.set-safe-directory }}
         github-server-url:          ${{ inputs.github-server-url }}
+        allow-unsafe-pr-checkout:   ${{ inputs.allow-unsafe-pr-checkout }}
 
     - name: "[git-checkout-extension][03] if: ${{ (steps.check-repo-exists-and-has-ref.outputs.is-repo-exists-and-has-ref == 'true') && (inputs.actions--checkout-ref == 'v2') }}"
       if: ${{ (steps.check-repo-exists-and-has-ref.outputs.is-repo-exists-and-has-ref == 'true') && (inputs.actions--checkout-ref == 'v2') }}
@@ -156,6 +241,7 @@ runs:
         lfs:                        ${{ inputs.lfs }}
         submodules:                 ${{ inputs.submodules }}
         set-safe-directory:         ${{ inputs.set-safe-directory }}
+        allow-unsafe-pr-checkout:   ${{ inputs.allow-unsafe-pr-checkout }}
 
     - name: '[git-checkout-extension][04] working copy initialization: `${{ inputs.path }}`'
       #if: ${{ steps.check-repo-exists-and-has-ref.conclusion != 'success' }}
