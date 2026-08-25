@@ -1,15 +1,33 @@
 > :information_source: this log lists user most visible changes
 
-> :warning: to find all changes use [changelog.txt](https://github.com/andry81-devops/gh-action--git-checkout/tree/HEAD/changelog.txt) file in a directory
+> :warning: to find all changes use [changelog.txt](https://github.com/andry81-devops/gh-action--git-checkout/tree/HEAD/changelog.txt) file
 
-> :information_source: Legend: :shield: - security; :wrench: - fixed; :new: - new; :pencil: - changed; :twisted_rightwards_arrows: - refactor
+> :open_book: Explanation: https://gist.github.com/andry81/d278e6d129ca1af326eafb67470a2ae3
+
+> :scroll: Legend: :shield: - security; :wrench: - fixed; :new: :sparkles: - new; :pencil: - changed; :twisted_rightwards_arrows: - refactor
+
+## 2026.08.25:
+* :pencil: changed: action.yml: switched to `actions/checkout@v7` as default upstream version
+
+## 2026.08.25:
+* :pencil: changed: action.yml: sync with `actions/checkout@v7.0.1`, `actions/checkout@v6.1.0`, `actions/checkout@v5.1.0`, `actions/checkout@v4.4.0`, `actions/checkout@v3.7.0`, `actions/checkout@v2.8.0`
+
+## 2024.02.02:
+* :pencil: changed: action.yml: sync with `actions/checkout@v4.2.2`, `actions/checkout@v3.6.0`, `actions/checkout@v2.7.0`
+
+## 2023.08.20:
+* :wrench: fixed: action.yml: every instruction in a shell script must not return not zero return code in case of special `.github-private` repository because `set -e` command is issued by default
+           https://github.com/andry81-devops/gh-action--git-checkout/issues/2: `Fails to do checkout on newly created private repo`
+
+## 2023.08.19:
+* :wrench: fixed: action.yml: `mkdir-p` wrong default value
 
 ## 2023.07.03:
 * :twisted_rightwards_arrows: refactor: action.yml: renamed workflow `Git Checkout Extension` to `git-checkout-extension`
 
 ## 2023.06.26:
 * :wrench: fixed: action.yml: missed to check `inputs.ref` for existence
-* :new: new: action.yml: added `actions--checkout-ref` input parameter to use specific `actions/checkout@<ref>` version (default: `v3`, variants: `v2`)
+* :new: new: :sparkles: action.yml: added `actions--checkout-ref` input parameter to use specific `actions/checkout@<ref>` version (default: `v3`, variants: `v2`)
 * :pencil: changed: action.yml: parameters updated to latest `actions/checkout` of version `v3` and `v2`
 
 ## 2023.06.26:
@@ -22,7 +40,7 @@
 * :twisted_rightwards_arrows: refactor: action.yml: rename for unique name on GitHub Marketplace
 
 ## 2022.05.04:
-* :new: new: action.yml: added `COMMIT_MESSAGE_PREFIX` to split an automated user commit message into prefix and suffix parts
+* :new: new: :sparkles: action.yml: added `COMMIT_MESSAGE_PREFIX` to split an automated user commit message into prefix and suffix parts
 
 ## 2022.04.16:
-* :new: new: action.yml: added `mkdir-p` to allocate directories after checkout because the `actions/checkout` action script does cleanup a working copy directory before execution
+* :new: new: :sparkles: action.yml: added `mkdir-p` to allocate directories after checkout because the `actions/checkout` action script does cleanup a working copy directory before execution

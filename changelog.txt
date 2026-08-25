@@ -1,4 +1,7 @@
 2026.08.25:
+* changed: userlog.md: user log update
+
+2026.08.25:
 * changed: action.yml: switched to `actions/checkout@v7` as default upstream version
 
 2026.08.25:
