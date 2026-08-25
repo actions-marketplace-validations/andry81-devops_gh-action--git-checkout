@@ -55,10 +55,10 @@ inputs:
   allow-unsafe-pr-checkout:
     default: false
 
-  # available: v4 | v3 | v2
+  # available: v7 | v6 | v5 | v4 | v3 | v2
   actions--checkout-ref:
     required: false
-    default: v4
+    default: v7
 
   mkdir-p:
     default: ''
